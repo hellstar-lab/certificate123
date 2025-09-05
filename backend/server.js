@@ -81,11 +81,18 @@ const corsOptions = {
       allowedOrigins.push(...additionalOrigins);
     }
     
+    // Check for exact match first
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      console.warn(`CORS blocked origin: ${origin}`);
-      callback(new Error('Not allowed by CORS'));
+      // Check for Netlify domains (*.netlify.app or *.netlify.com)
+      const isNetlifyDomain = origin && (origin.endsWith('.netlify.app') || origin.endsWith('.netlify.com'));
+      if (isNetlifyDomain) {
+        callback(null, true);
+      } else {
+        console.warn(`CORS blocked origin: ${origin}`);
+        callback(new Error('Not allowed by CORS'));
+      }
     }
   },
   credentials: true,
