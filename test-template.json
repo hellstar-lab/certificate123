@@ -1,0 +1,25 @@
+{
+  "name": "Test Certificate Template",
+  "description": "A test template for certificate generation",
+  "placeholders": [
+    {
+      "type": "name",
+      "x": 300,
+      "y": 200,
+      "fontSize": 32,
+      "fontFamily": "Arial",
+      "color": "#000000",
+      "fontWeight": "bold",
+      "textAlign": "center"
+    },
+    {
+      "type": "id",
+      "x": 300,
+      "y": 300,
+      "fontSize": 24,
+      "fontFamily": "Arial",
+      "color": "#666666",
+      "textAlign": "center"
+    }
+  ]
+}
